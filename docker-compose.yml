@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: ai-realty-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: airealty
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - airealty_pgdata:/var/lib/postgresql/data
+volumes:
+  airealty_pgdata:
